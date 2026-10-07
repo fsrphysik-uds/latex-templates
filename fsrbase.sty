@@ -1,0 +1,36 @@
+% --- Grundeinstellungen --- %
+% Stelle sicher, dass kompatible LaTeX Version genutzt wird
+% und definiere package
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{fsrbase}[2026/06/24 v1.0 Identitaet der Fachschaft Physik]
+
+% Werfe einen Fehler, wenn nicht LuaTeX als build-engine
+% genutzt wird, da die sty darauf aufbaut
+\RequirePackage{iftex}
+\RequireLuaTeX
+
+% --- Standard-Pakete --- %
+\RequirePackage{fontspec} % Erlaube Nutzung der System-Fonts
+\RequirePackage[ngerman]{babel} % Nutze deutsche Typographie
+\RequirePackage{csquotes} % Erlaube Nutzung deutscher Anführungszeichen
+\RequirePackage{microtype} % Besserer Blocksatz und saubere Zeilenumbrüche
+\RequirePackage{xcolor} % Bessere Nutzung von Farben im Dokument
+\RequirePackage{graphicx} % Modernes Paket zum einbinden von Grafiken im Dokument
+
+% --- Akzentfarbe --- %
+\definecolor{fsrcolor}{RGB}{0,0,0}
+\definecolor{fsrgrey}{HTML}{4D4D4D}
+
+% --- Schriftart --- %
+\setmainfont{Tex Gyre Termes} % Serif Schriftart
+\setsansfont{Tex Gyre Heros} % Sans-Serif Schriftart
+
+% --- Nutze deutsche Anführungszeichen standardmäßig
+\MakeOuterQuote{"}
+
+% --- Befehl um Fachschaftslogo mit standartisierter Größe zu setzen --- %
+% Arg 1: Größe der Abbildung (standard: 5cm)
+\newcommand{\fsrlogo}[1][5cm]{%
+	\includegraphics[height=#1]{fsr-logo.png}%
+}
+\endinput
